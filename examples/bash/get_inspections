@@ -1,0 +1,39 @@
+#!/bin/bash
+
+orgs=""
+sites=""
+startDate=""
+endDate=""
+inspectionId=""
+leakId=""
+
+base_url="https://dev-api.axil.ai/airmethane/external/inspections"
+
+url_opts=""
+
+while getopts o:s:d:b:i:l flag
+do
+    case "${flag}" in
+        o) orgs='orgs/'${OPTARG};;
+        s) sites='sites/'${OPTARG};;
+        d) startDate='startDate/'${OPTARG};;
+        b) endDate='endDate/'${OPTARG};;
+        i) inspectionId='inspectionId/'${OPTARG};;
+        l) leakId='leakId/'${OPTARG};;
+    esac
+done
+
+for ARG in $orgs $sites $startDate $endDate $inspectionId $leakId; do
+  if [ $(expr length "$ARG") > 0 ]; then
+    url_opts+='/'"${ARG}"
+  fi
+done
+
+echo "$base_url""$url_opts"
+
+TOKEN=$(curl --url https://axil.auth0.com/oauth/token --header "Content-Type: application/json" --data \
+'{"client_id": "'"$CLIENT_ID"'", "client_secret": "'"$CLIENT_SECRET"'",	"audience": "https://api.axil.ai", "grant_type": "client_credentials"}' | jq -r '.access_token')
+
+curl -X GET \
+  --url "$base_url""$url_opts" \
+  --header 'Authorization: Bearer '"$TOKEN" >> inspections.json
