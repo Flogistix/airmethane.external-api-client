@@ -157,17 +157,17 @@ If there are no inspections:
 * "customerName": 
 	- data type: string
 	- description: internal name for the customer
-	- parameter path: none
+
 * "customerLocationName": 
 	- data type: string
 	- description: internal name for the location on which the inspection occurred
-	- parameter path: none
+
 
 #### Inspection Information
 * "inspectionInformation": 
 	- data type: JSON array
 	- description: contains list of inspection information
-	- parameter path: none
+
 * "inspectionId": 
 	- data type: integer
 	- description: internal ID for the inspection conducted
@@ -186,7 +186,6 @@ If there are no inspections:
 * "Primary Site Contact": 
 	- data type: string
  	- description: name of primary contact for the location
- 	- parameter path: none
 * "Inspection Date": 
 	- data type: date
  	- description: date inspection occurred, formatted YYYY-MM-DD
@@ -194,67 +193,51 @@ If there are no inspections:
 * "Start Time": 
 	- data type: string
  	- description: beginning time inspection occurred, formatted HH24:MI
- 	- parameter path: none
 * "End Time": 
 	- data type: string
  	- description: time inspection ended, formatted HH24:MI
- 	- parameter path: none
 * "Sky Condition": 
 	- data type: string
  	- description: description of sky, example: "mostly clear"
- 	- parameter path: none
 * "Ambient Temperature": 
 	- data type: integer
- 	- description: temperature in degrees Celsius?
- 	- parameter path: none
+ 	- description: temperature in degrees Fahrenheit
 * "Wind Direction": 
 	- data type: string
  	- description: which direction the wind is blowing
- 	- parameter path: none
 * "Wind Speed": 
 	- data type: integer
- 	- description: speed of wind in MPH?
- 	- parameter path: none
+ 	- description: speed of wind in MPH
 * "Humidity": 
 	- data type: string
- 	- description: humidity in 
- 	- parameter path: none
+ 	- description: humidity in %
 * "Barometric Pressure": 
 	- data type: string
- 	- description: barometric pressure in?
- 	- parameter path: none
+ 	- description: barometric pressure in 'inHg'
 * "Viewing Distance": 
 	- data type: string
- 	- description: viewing distance in?
- 	- parameter path: none
+ 	- description: viewing distance in feet
 * "Inspection Method 1": 
 	- data type: string
  	- description: description of first inspection method
- 	- parameter path: none
 * "Inspection Method 2": 
 	- data type: string
  	- description: description of second inspection method
- 	- parameter path: none
 * "Survey Instrument 1": 
 	- data type: string
  	- description: description of first survery instrument
- 	- parameter path: none
 * "Survey Instrument 2": 
 	- data type: string
  	- description: description of second survery instrument
- 	- parameter path: none
 * "Inspector Id 1": 
 	- data type: string
- 	- description: name of primary pilot?
- 	- parameter path: none
+ 	- description: name of primary inspector
 * "Inspector Id 2": 
 	- data type: string
- 	- description: name of second pilot?
- 	- parameter path: none
+ 	- description: name of secondary inspector
 * "Operational Status": 
 	- data type: string
- 	- description: ?
- 	- parameter path: none
+ 	- description: status of equipment: Running/Disabled
 
 #### Leak Information
 * "leaks":
@@ -272,97 +255,75 @@ If there are no inspections:
 * "fileType": 
 	- data type: string
 	- description: type of file (usually "image")
-	- parameter path: none
 * "imageUrl": 
 	- data type: string
 	- description: presigned S3 URL that is valid for one hour to retrieve the image
-	- parameter path: none
 * "name": 
 	- data type: string
 	- description: file name of the image
-	- parameter path: none
 * "sensorType": 
 	- data type: string
 	- description: type of sensor used to collect image
-	- parameter path: none
 
 #### Repair Information
 * "repairInformation": 
 	- data type: JSON object
 	- description: contains the fields pertaining to repairs
-	- parameter path: none
 * "id": 
 	- data type: string
 	- description: repair identifier
-	- parameter path: none
 * "Status": 
 	- data type: string
 	- description: repair status, ex: "Complete" or "Delay"
-	- parameter path: none
 * "Component": 
 	- data type: string
-	- description: part that is leaking?
-	- parameter path: none
+	- description: part that is leaking
 * "Component Subtype": 
 	- data type: string
-	- description: subtype of part that is leaking?
-	- parameter path: none
+	- description: subtype of part that is leaking
 * "Component ID": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: component internal identifier
 * "Component Location": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: component location
 * "Description": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: description of leak
 * "Tag #": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: internal identifier of leak asset
 * "Video #": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: internal identifier of video tied to leak
 * "Picture #": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: internal identifier of photo tied to leak
 * "Leak Rate": 
-	- data type: string
-	- description: TBD
-	- parameter path: none
+	- data type: integer
+	- description: value of leak
 * "Leak Rate UOM":
 	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: leak rate unit of measure
 * "Due Date":
    	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: due date of repair to be completed
 * "Repair Complete":
    	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: date repair was completed
 * "Verification Date": 
    	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: date repair was verified
 * "Repair Methods": 
    	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: how the repair was done
 * "Additional Repair notes": 
    	- data type: string
-	- description: TBD
-	- parameter path: none
+	- description: additional repair notes entered
 * "Repaired By":
     - data type: string
 	- description: name of person who completed the repair
-	- parameter path: none
+
 
 ### Response Codes:
 **200**: Inspections list  
