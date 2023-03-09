@@ -12,6 +12,7 @@
 ### Accessing the API
 - Base dev URL: `https://dev-api.axil.ai/airmethane/external/inspections`
 - Base prod URL: `https://api.axil.ai/airmethane/external/inspections`
+- Authorization: we use Auth0 to generate a JSON Web Token (JWT) that we use for Bearer authentication. To set up your Auth0 credentials, please contact support@flogistix.com. For how to generate your JWT, please see one of the examples.
 
 The API is used by creating a path with your desired parameters and appending them to the base URLs above. The format looks like: 
 ```
@@ -176,6 +177,85 @@ If there are no inspections:
  	- description: date inspection occurred, formatted YYYY-MM-DD
  	- parameter path: /startDate/ and /endDate/
 
+
+#### Survey Information
+* "Inspection Id": 
+	- data type: integer
+	- description: internal ID for the inspection conducted
+	- parameter path: /inspectionId/
+* "Primary Site Contact": 
+	- data type: string
+ 	- description: name of primary contact for the location
+ 	- parameter path: none
+* "Inspection Date": 
+	- data type: date
+ 	- description: date inspection occurred, formatted YYYY-MM-DD
+ 	- parameter path: /startDate/ and /endDate/
+* "Start Time": 
+	- data type: string
+ 	- description: beginning time inspection occurred, formatted HH24:MI
+ 	- parameter path: none
+* "End Time": 
+	- data type: string
+ 	- description: time inspection ended, formatted HH24:MI
+ 	- parameter path: none
+* "Sky Condition": 
+	- data type: string
+ 	- description: description of sky, example: "mostly clear"
+ 	- parameter path: none
+* "Ambient Temperature": 
+	- data type: integer
+ 	- description: temperature in degrees Celsius?
+ 	- parameter path: none
+* "Wind Direction": 
+	- data type: string
+ 	- description: which direction the wind is blowing
+ 	- parameter path: none
+* "Wind Speed": 
+	- data type: integer
+ 	- description: speed of wind in MPH?
+ 	- parameter path: none
+* "Humidity": 
+	- data type: string
+ 	- description: humidity in 
+ 	- parameter path: none
+* "Barometric Pressure": 
+	- data type: string
+ 	- description: barometric pressure in?
+ 	- parameter path: none
+* "Viewing Distance": 
+	- data type: string
+ 	- description: viewing distance in?
+ 	- parameter path: none
+* "Inspection Method 1": 
+	- data type: string
+ 	- description: description of first inspection method
+ 	- parameter path: none
+* "Inspection Method 2": 
+	- data type: string
+ 	- description: description of second inspection method
+ 	- parameter path: none
+* "Survey Instrument 1": 
+	- data type: string
+ 	- description: description of first survery instrument
+ 	- parameter path: none
+* "Survey Instrument 2": 
+	- data type: string
+ 	- description: description of second survery instrument
+ 	- parameter path: none
+* "Inspector Id 1": 
+	- data type: string
+ 	- description: name of primary pilot?
+ 	- parameter path: none
+* "Inspector Id 2": 
+	- data type: string
+ 	- description: name of second pilot?
+ 	- parameter path: none
+* "Operational Status": 
+	- data type: string
+ 	- description: ?
+ 	- parameter path: none
+
 #### Leak Information
 * "leaks":
 	- data type: JSON array
@@ -217,15 +297,15 @@ If there are no inspections:
 	- parameter path: none
 * "Status": 
 	- data type: string
-	- description: repair status, ex: "Complete"
+	- description: repair status, ex: "Complete" or "Delay"
+	- parameter path: none
+* "Component": 
+	- data type: string
+	- description: part that is leaking?
 	- parameter path: none
 * "Component Subtype": 
 	- data type: string
-	- description: TBD
-	- parameter path: none
-* "Component Subtype": 
-	- data type: string
-	- description: TBD
+	- description: subtype of part that is leaking?
 	- parameter path: none
 * "Component ID": 
 	- data type: string
@@ -281,7 +361,7 @@ If there are no inspections:
 	- parameter path: none
 * "Repaired By":
     - data type: string
-	- description: TBD
+	- description: name of person who completed the repair
 	- parameter path: none
 
 ### Response Codes:
