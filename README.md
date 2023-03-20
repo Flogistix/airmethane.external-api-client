@@ -60,53 +60,43 @@ Valid Responses:
 {
     "inspections": [
         {
-            "customerId": 224,
-            "customerLocationId": 1510,
-            "customerName": "Earthstone Operating",
-            "customerLocationName": "Black River 3-10 Fed Com WCA 4H",
+            "customerId": 1177,
+            "customerLocationId": 17889,
+            "customerName": "Oil Man",
+            "customerLocationName": "MARFA - BOOSTER",
             "inspectionInformation": [
                 {
-                    "inspectionId": 83,
-                    "inspectionDate": "2021-08-24",
+                    "inspectionId": 1574,
+                    "inspectionDate": "2022-11-03",
+                    "surveyId": "fC",
+                    "surveyData": {
+                        "Inspection ID": "jC",
+                        "Primary Site Contact": null,
+                        "Start Time": "00:30",
+                        "End Time": "01:40",
+                        "Sky Condition": "Mostly Clear",
+                        "Ambient Temperature": 23,
+                        "Wind Direction": null,
+                        "Wind Speed": 23,
+                        "Humidity": null,
+                        "Barometric Pressure": null,
+                        "Viewing Distance": null,
+                        "Inspection Method 1": "",
+                        "Inspection Method 2": "",
+                        "Survey Instrument 1": "Chip & Dip",
+                        "Survey Instrument 2": "",
+                        "Inspector Id 1": "Yogie Bear",
+                        "Inspector Id 2": "",
+                        "Operational Status": ""
+                    },
                     "leaks": [
                         {
-                            "leakId": null,
-                            "tagNumber": null,
+                            "leakId": 40,
+                            "tagNumber": "3153524",
                             "fileType": "image",
-                            "imageUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/ChisholmEnergyOperating/BlackRiver3-10FedComWCA4H/image/StandardPic/08-24-2021/BlackRiver3-10FCBatteryLeak2Repair.PNG?presignedurl",
-                            "name": "Black River 3-10 FC Battery Leak 2 Repair.PNG",
-                            "sensorType": "Standard Pic"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "customerId": 224,
-            "customerLocationId": 846,
-            "customerName": "Earthstone Operating",
-            "customerLocationName": "Dark Canyon 15 22 2H 3H & 4H",
-            "inspectionInformation": [
-                {
-                    "inspectionId": 85,
-                    "inspectionDate": "2021-08-24",
-                    "leaks": [
-                        {
-                            "leakId": null,
-                            "tagNumber": null,
-                            "fileType": "image",
-                            "imageUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/ChisholmEnergyOperating/DarkCanyon15222H3H%264H/image/StandardPic/08-24-2021/DarkCanyon15-22StateComBatteryRe-inspectionLeak3.PNG?presignedurl",
-                            "name": "Dark Canyon 15-22 State Com Battery Re-inspection Leak 3.PNG",
-                            "sensorType": "Standard Pic",
-                            "repairInfo": null
-                        },
-                        {
-                            "leakId": null,
-                            "tagNumber": null,
-                            "fileType": "image",
-                            "imageUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/ChisholmEnergyOperating/DarkCanyon15222H3H%264H/image/StandardPic/08-24-2021/DarkCanyon15-22StateComBatteryRe-inspectionLeak2Repair.PNG?presignedurl",
-                            "name": "Dark Canyon 15-22 State Com Battery Re-inspection Leak 2 Repair.PNG",
-                            "sensorType": "Standard Pic",
+                            "imageUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/OilMan/MARFA-BOOSTER/None/FLIROGI/02-02-2023/3153524OGI.jpg?response-content-disposition=attachment%3B%20filename%3D%223153524OGI.jpg%presignedsuffix",
+                            "name": "3153524OGI.jpg",
+                            "sensorType": "FLIR OGI",
                             "repairInfo": {
                                 "id": "fP",
                                 "Status": "Complete",
@@ -127,13 +117,22 @@ Valid Responses:
                                 "Additional Repair notes": "Good to go now!",
                                 "Repaired By": "Greg Banks"
                             }
+                        },
+                        {
+                            "leakId": null,
+                            "tagNumber": null,
+                            "fileType": "image",
+                            "imageUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/OilMan/MARFA-BOOSTER/None/StandardPic/02-02-2023/DailyVerificationCheckOGI10.28.22.jpg?response-content-disposition=attachment%3B%20filename%3D%22DailyVerificationCheckOGI10.28.22.jpg%presignedsuffix",
+                            "name": "DailyVerificationCheckOGI10.28.22.jpg",
+                            "sensorType": "Standard Pic",
+                            "repairInfo": null
                         }
                     ]
                 }
             ]
         }
     ],
-    "executionTime": "8.85 sec"
+    "executionTime": "41.26 sec"
 }
 ```
 If there are no inspections:
@@ -157,7 +156,6 @@ If there are no inspections:
 * "customerName": 
 	- data type: string
 	- description: internal name for the customer
-
 * "customerLocationName": 
 	- data type: string
 	- description: internal name for the location on which the inspection occurred
@@ -167,7 +165,6 @@ If there are no inspections:
 * "inspectionInformation": 
 	- data type: JSON array
 	- description: contains list of inspection information
-
 * "inspectionId": 
 	- data type: integer
 	- description: internal ID for the inspection conducted
@@ -304,7 +301,7 @@ If there are no inspections:
 	- description: value of leak
 * "Leak Rate UOM":
 	- data type: string
-	- description: leak rate unit of measure
+	- description: leak rate unit of measure, if null, assume ppm-m
 * "Due Date":
    	- data type: string
 	- description: due date of repair to be completed
