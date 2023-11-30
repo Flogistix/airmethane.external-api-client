@@ -20,16 +20,14 @@ The API is used by creating a path with your desired parameters and appending th
 ```
 
 Valid Parameters:
- - **orgs** integer derived from an inspection's "customerId" value, represents internal identifier of a customer's organization
- - **sites** integer derived from an inspection's "customerLocationId" value, represents internal identifier of a customer's location to be inspected
- - **id** integer, unique identifier of an inspection
- - **inspectonDate** ISO format YYYY-DD-MM, date an inspection took place
- - **inspectionDateAfter** ISO format YYYY-DD-MM, filters results for inspections that occured on or after this date
- - **inspectionDateBefore** ISO format YYYY-DD-MM, filters results for inspections that occured on or before this date
+ - **orgs** - integer, derived from an inspection's "customerId" value, represents internal identifier of a customer's organization
+ - **sites** - integer, derived from an inspection's "customerLocationId" value, represents internal identifier of a customer's location to be inspected
+ - **id** - integer, unique identifier of an inspection
+ - **inspectonDate** - ISO format YYYY-DD-MM, date an inspection took place
+ - **inspectionDateAfter** - ISO format YYYY-DD-MM, filters results for inspections that occured on or after this date
+ - **inspectionDateBefore** - ISO format YYYY-DD-MM, filters results for inspections that occured on or before this date
 
-Details for how to use the parameters, what they represent, and how to interpret the responses are below.
-
-## GET external/inspections 
+## Endpoint Path Examples
 Retrieve inspections by org (identifier for customer), site (identifier for customer's location), inspection date range, or inspection ID. Order of parameters in the path does not matter. This endpoint is intended for AirMethane customer usage only.
 
 Note: usage of curly braces in examples should be excluded from the actual path when using the endpoint.
