@@ -444,7 +444,7 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
 
 This glossary provides an overview of the key terms and structures in the JSON inspection data provided to customers. Please reference the definitions below to better understand the example response payloads above.
 
-## Top-Level Structure
+## Inspection-level Information
 
 - **inspections**: An array containing inspections returned by given parameters to the endpoint.
   - **id**: Unique identifier for the inspection.
@@ -483,37 +483,40 @@ This glossary provides an overview of the key terms and structures in the JSON i
     - **fileType**: Type of file (e.g., image).
     - **downloadUrl**: URL for downloading the file.
 
-## Inspection Details
+## Nested Object Information
 
-- **verifications**: Array containing information about the survey instrument details.
-  - **id**: Unique identifier for the verification.
-  - **inspectionId**: Identifier linking the verification to an inspection.
-  - **flowRate**: Flow rate observed during verification in g/ph.
-  - **altitude**: Altitude at which instrument was tested in meters.
-  - **surveyInstrumentId**: Identifier for instrument being tested.
-  - **surveyInstrument**: Instrument used for the verification.
-    - **id**: Instrument identifier.
-    - **name**: Instrument name.
-    - **serialNumber**: Serial number of the instrument.
-    - **sensorType**: Type of sensor used.
-      - **id**: Sensor type identifier.
-      - **name**: Sensor type name.
-  - **file**: File associated with the verification.
-    - **name**: Name of the file.
-    - **sensorType**: Type of sensor used.
-      - **id**: Sensor type identifier.
-      - **name**: Sensor type name.
-    - **fileType**: Type of file (e.g., image).
-    - **downloadUrl**: URL for downloading the file.
+### Verifications:
+- **verifications**: Array containing information about the survey instrument verification test on the day the inspection occurred.
+- **id**: Unique identifier for the verification.
+- **inspectionId**: Identifier linking the verification to an inspection.
+- **flowRate**: Flow rate observed during verification in g/ph.
+- **altitude**: Altitude at which instrument was tested in meters.
+- **surveyInstrumentId**: Identifier for instrument being tested.
+- **surveyInstrument**: Instrument used for the verification.
+  - **id**: Instrument identifier.
+  - **name**: Instrument name.
+  - **serialNumber**: Serial number of the instrument.
+  - **sensorType**: Type of sensor used.
+    - **id**: Sensor type identifier.
+    - **name**: Sensor type name.
+- **file**: File associated with the verification.
+  - **name**: Name of the file.
+  - **sensorType**: Type of sensor used.
+    - **id**: Sensor type identifier.
+    - **name**: Sensor type name.
+  - **fileType**: Type of file (e.g., image).
+  - **downloadUrl**: URL for downloading the file.
 
+### Site Conditions:
 - **siteConditions**: Details about the weather on location during inspection.
-  - **id**: Unique identifier for site conditions.
-  - **inspectionId**: Identifier linking site conditions to an inspection.
-  - **skyConditions**: Sky conditions during inspection.
-  - **ambientTemperature**: Ambient temperature during inspection.
-  - **windDirection**: Wind direction during inspection.
-  - **maxWindSpeed**: Maximum wind speed in MPH during inspection.
+- **id**: Unique identifier for site conditions.
+- **inspectionId**: Identifier linking site conditions to an inspection.
+- **skyConditions**: Sky conditions during inspection.
+- **ambientTemperature**: Ambient temperature during inspection.
+- **windDirection**: Wind direction during inspection.
+- **maxWindSpeed**: Maximum wind speed in MPH during inspection.
 
+### Surveys:
 - **surveys**: Array containing survey details. A survey is defined by each flight of our drones with recorded sensor information. An inspection can have several surveys with the same survey instrument, each marking an individual flyover.
   - **id**: Unique identifier for the survey.
   - **inspectionId**: Identifier linking the survey to an inspection.
@@ -560,15 +563,15 @@ This glossary provides an overview of the key terms and structures in the JSON i
     - **rateUom**: Unit of measurement for the leak rate.
     - **activity**: Activity associated with the leak detection.
     - **status**: Status of the leak detection.
-  - **files**: Array containing files associated with the survey.
-    - **name**: Name of the file.
-    - **sensorType**: Type of sensor used.
-      - **id**: Sensor type identifier.
-      - **name**: Sensor type name.
+    - **files**: Array containing files associated with the survey.
+      - **name**: Name of the file.
+      - **sensorType**: Type of sensor used.
+        - **id**: Sensor type identifier.
+        - **name**: Sensor type name.
     - **fileType**: Type of file (e.g., video).
     - **downloadUrl**: URL for downloading the file.
 
-## Leaks
+### Leaks:
 
 - **leaks**: Array containing details about leaks identified during the inspection.
   - **id**: Unique identifier for the leak.
@@ -599,7 +602,7 @@ This glossary provides an overview of the key terms and structures in the JSON i
         - **fileType**: Type of file (e.g., video).
         - **downloadUrl**: URL for downloading the file.
 
-## Monitored Components
+## Monitoring Plan Information
 
 - **monitoredComponents**: Array containing details about components monitored during the inspection, as dictated by your monitoring plan.
   - **id**: Unique identifier for the monitored component.
@@ -609,11 +612,9 @@ This glossary provides an overview of the key terms and structures in the JSON i
   - **unsafeToMonitor**: Indicates if it is unsafe to monitor the component.
   - **description**: Additional description of the monitored component.
 
-## Monitoring Plan Deviations
-
 - **monitoringPlanDeviations**: Deviations from the monitoring plan (if any).
 
-## Customer Information
+## Customer and Location Information
 
 - **customer**: Details about the customer.
   - **customerId**: Unique identifier for the customer.
