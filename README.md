@@ -97,21 +97,21 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
             "contactApiNumber": null,
             "operationalStatus": "Disabled",
             "locationSignFile": {
-				"name": "Disney Land Castle Visit",
-				"sensorType": {
-					"id": 3,
-					"name": "Sniffer"
-				},
-				"fileType": "image",
-				"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/Disneyland/Disneyland%20Castle/image/VentusOGI/08-20-2021/Disney%20Land%20Castle%20Visit.PNG?response-content-disposition=attachment%3B%20filename%3D%22Disney%20Land%20Castle%20Visit&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
-			},
+                "name": "Disney Land Castle Visit",
+                "sensorType": {
+                    "id": 3,
+                    "name": "Sniffer"
+                },
+                "fileType": "image",
+                "downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/Disneyland/Disneyland%20Castle/image/VentusOGI/08-20-2021/Disney%20Land%20Castle%20Visit.PNG?response-content-disposition=attachment%3B%20filename%3D%22Disney%20Land%20Castle%20Visit&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
+            },
             "verifications": [{
                     "id": 316,
                     "inspectionId": 3664,
                     "flowRate": 60.549999,
                     "altitude": 800.5,
-					"surveyInstrumentId": 3,
-					"surveyInstrument": {
+                    "surveyInstrumentId": 3,
+                    "surveyInstrument": {
                         "id": 3,
                         "name": "VentusOGI",
                         "serialNumber": "SN 630018",
@@ -121,14 +121,14 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
                         }
                     },
                     "file": {
-						"name": "dl_verif",
-						"sensorType": {
+                        "name": "dl_verif",
+                        "sensorType": {
                             "id": 7,
                             "name": "OGI"
                         },
-						"fileType": "image",
-						"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/dl_verif/image/VentusOGI/08-20-2021/dl_verif.PNG?response-content-disposition=attachment%3B%20filename%3D%22dl_verif&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
-					}
+                        "fileType": "image",
+                        "downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/dl_verif/image/VentusOGI/08-20-2021/dl_verif.PNG?response-content-disposition=attachment%3B%20filename%3D%22dl_verif&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
+                    }
                 }
             ],
             "siteConditions": {
@@ -176,7 +176,7 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
                                 }
                             ]
                         },
-						{
+                        {
                             "id": 4,
                             "name": "Goofy Goof",
                             "email": "ggoof@flogistix.com",
@@ -196,25 +196,25 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
                     ],
                     "leakDetections": [],
                     "files": [
-						{
-						"name": "survey_vid",
-						"sensorType": {
-							"id": 1,
-							"name": "FLIR OGI"
-						},
-						"fileType": "video",
-						"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/survey_vid/image/FLIROGI/08-20-2021/survey_vid.PNG?response-content-disposition=attachment%3B%20filename%3D%22survey_vid&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
-						},
-						{
-						"name": "survey_vid2",
-						"sensorType": {
-							"id": 3,
-							"name": "Sniffer"
-						},
-						"fileType": "video",
-						"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/survey_vid2/image/Sniffer/08-20-2021/survey_vid2.PNG?response-content-disposition=attachment%3B%20filename%3D%22survey_vid2&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
-						}
-					]
+                        {
+                        "name": "survey_vid",
+                        "sensorType": {
+                            "id": 1,
+                            "name": "FLIR OGI"
+                        },
+                        "fileType": "video",
+                        "downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/survey_vid/image/FLIROGI/08-20-2021/survey_vid.PNG?response-content-disposition=attachment%3B%20filename%3D%22survey_vid&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
+                        },
+                        {
+                        "name": "survey_vid2",
+                        "sensorType": {
+                            "id": 3,
+                            "name": "Sniffer"
+                        },
+                        "fileType": "video",
+                        "downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/survey_vid2/image/Sniffer/08-20-2021/survey_vid2.PNG?response-content-disposition=attachment%3B%20filename%3D%22survey_vid2&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
+                        }
+                    ]
                 }, {
                     "id": 363,
                     "inspectionId": 3664,
@@ -252,7 +252,7 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
                                 }
                             ]
                         },
-						{
+                        {
                             "id": 4,
                             "name": "Goofy Goof",
                             "email": "ggoof@flogistix.com",
@@ -312,13 +312,13 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
                             "leakId": 166,
                             "fileId": 6959,
                             "file": {
-								"name": "leak_detected_gif",
-								"sensorType": {
-									"id": 3,
-									"name": "Sniffer"
-								},
-								"fileType": "image",
-								"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/leak_detected_gif/image/Sniffer/08-20-2021/leak_detected_gif.gif?response-content-disposition=attachment%3B%20filename%3D%22leak_detected_gif&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
+                                "name": "leak_detected_gif",
+                                "sensorType": {
+                                    "id": 3,
+                                    "name": "Sniffer"
+                                },
+                                "fileType": "image",
+                                "downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/leak_detected_gif/image/Sniffer/08-20-2021/leak_detected_gif.gif?response-content-disposition=attachment%3B%20filename%3D%22leak_detected_gif&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
                             },
                             "inspectionSurveyId": 165,
                             "cleanConnectId": 0,
@@ -432,9 +432,9 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
 ### No results on specific inspection ID requested - response code 404
 ```json
 {
-	"status": "Not Found",
-	"message": "Could not find inspection with given ID.",
-	"executionTime": "2.39 sec"
+    "status": "Not Found",
+    "message": "Could not find inspection with given ID.",
+    "executionTime": "2.39 sec"
 }
 ```
 
@@ -547,11 +547,11 @@ This glossary provides an overview of the key terms and structures in the JSON i
     - **fileId**: Identifier linking the leak detection to a file. Usually a .gif of the leak occuring.
     - **file**: File associated with the leak detection.
       - **name**: Name of the file.
-	  - **sensorType**: Type of sensor used.
-	    - **id**: Sensor type identifier.
-		- **name**: Sensor type name.
-	  - **fileType**: Type of file (e.g., video).
-	  - **downloadUrl**: URL for downloading the file.
+      - **sensorType**: Type of sensor used.
+        - **id**: Sensor type identifier.
+        - **name**: Sensor type name.
+      - **fileType**: Type of file (e.g., video).
+      - **downloadUrl**: URL for downloading the file.
     - **inspectionSurveyId**: Identifier linking the leak detection to an inspection survey.
     - **cleanConnectId**: Identifier linking the leak detection to a clean connect.
     - **volume**: Volume of the leak.
@@ -591,13 +591,13 @@ This glossary provides an overview of the key terms and structures in the JSON i
     - **method**: Method used for the repair.
     - **notes**: Additional notes about the repair.
     - **fileId**: Identifier linking the repair to a file.
-	- **files**: Array containing files associated to the repair.
-		- **name**: Name of the file.
-		- **sensorType**: Type of sensor used.
-			- **id**: Sensor type identifier.
-			- **name**: Sensor type name.
-		- **fileType**: Type of file (e.g., video).
-    	- **downloadUrl**: URL for downloading the file.
+    - **files**: Array containing files associated to the repair.
+        - **name**: Name of the file.
+        - **sensorType**: Type of sensor used.
+            - **id**: Sensor type identifier.
+            - **name**: Sensor type name.
+        - **fileType**: Type of file (e.g., video).
+        - **downloadUrl**: URL for downloading the file.
 
 ## Monitored Components
 
