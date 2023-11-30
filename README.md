@@ -19,6 +19,14 @@ The API is used by creating a path with your desired parameters and appending th
 <base_url>/<parameter1>/<parameter1_value>/<parameter2>/<parameter2_value>/...
 ```
 
+Valid Parameters:
+ - **orgs** integer derived from an inspection's "customerId" value, represents internal identifier of a customer's organization
+ - **sites** integer derived from an inspection's "customerLocationId" value, represents internal identifier of a customer's location to be inspected
+ - **id** integer, unique identifier of an inspection
+ - **inspectonDate** ISO format YYYY-DD-MM, date an inspection took place
+ - **inspectionDateAfter** ISO format YYYY-DD-MM, filters results for inspections that occured on or after this date
+ - **inspectionDateBefore** ISO format YYYY-DD-MM, filters results for inspections that occured on or before this date
+
 Details for how to use the parameters, what they represent, and how to interpret the responses are below.
 
 ## GET external/inspections 
@@ -32,11 +40,11 @@ GET external/inspections/
 ```
 ### Get inspections for a specific org
 ```
-GET external/inspections/orgs/{orgid}
+GET external/inspections/orgs/{customerId}
 ```
 ### Get inspections for a specific site
 ```
-GET external/inspections/orgs/{orgid}/sites/{siteId}
+GET external/inspections/orgs/{customerId}/sites/{customerLocationId}
 ```
 ### Get inspections for a specific date range
 ```
@@ -49,9 +57,12 @@ GET external/inspections/id/{99999}
 ```
 ### Combining options to one path (order NOT important!)
 ```
-GET external/inspections/orgs/{customerId}/sites/inspectionDateAfter/{YYYY-MM-DD}/inspectionDateBefore/{YYYY-MM-DD}
+GET external/inspections/orgs/{customerId}/sites/{customerLocationId}/inspectionDateAfter/{YYYY-MM-DD}/inspectionDateBefore/{YYYY-MM-DD}
 ```
-
+### Alternatively, you can use query strings
+```
+GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspectionDateAfter={YYYY-MM-DD}&inspectionDateBefore={YYYY-MM-DD}
+```
 ## Example Responses from API
 
 ### Successful response - response code 200
