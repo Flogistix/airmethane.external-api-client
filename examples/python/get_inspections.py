@@ -12,13 +12,13 @@ URL_ENV_MAP = {
 }
 
 
-def get_records(auth_token: str, resquest_url: str) -> dict:
+def get_records(auth_token: str, request_url: str) -> dict:
     print('get_records :: starting')
     headers = {
         'content-type': 'application/json',
         'Authorization': f'Bearer {auth_token}'
     }
-    req_resp = requests.request(method='get', url=resquest_url, headers=headers)
+    req_resp = requests.request(method='get', url=request_url, headers=headers)
     if req_resp.status_code != requests.codes.ok:
         raise Exception(f'Error occurred retrieving inspections: {req_resp.reason}')
     recs = req_resp.json()
@@ -53,10 +53,9 @@ if __name__ == '__main__':
                         )
     parser.add_argument('-o', '--orgs', help='Return inspections for given org/company ID', required=False)
     parser.add_argument('-s', '--sites', help='Return inspections for given site/location ID', required=False)
-    parser.add_argument('-d', '--startDate', help='Return inspections on or after this date, ISO format YYYY-MM-DD', required=False)
-    parser.add_argument('-b', '--endDate', help='Return inspections on or before this date, ISO format YYYY-MM-DD', required=False)
-    parser.add_argument('-i', '--inspectionId', help='Return inspections for matching ID', required=False)
-    parser.add_argument('-l', '--leakId', help='Return inspections for leaks matching ID', required=False)
+    parser.add_argument('-a', '--inspectionDateAfter', help='Return inspections on or after this date, ISO format YYYY-MM-DD', required=False)
+    parser.add_argument('-b', '--inspectionDateBefore', help='Return inspections on or before this date, ISO format YYYY-MM-DD', required=False)
+    parser.add_argument('-i', '--id', help='Return inspections for matching ID', required=False)
     args = parser.parse_args()
 
     token_obj = AxilAuthorizer(client_credentials['client_id'], client_credentials['client_secret'], jwt_token)
@@ -76,4 +75,4 @@ if __name__ == '__main__':
     inspection_response = get_records(token_obj.token, request_url)
     
     with open('inspections.json', 'w+', encoding='utf-8') as json_write:
-        json_write.write(json.dumps(inspection_response))
+        json_write.write(json.dumps(inspection_response, indent=4))
