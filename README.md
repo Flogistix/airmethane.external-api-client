@@ -628,10 +628,10 @@ This glossary provides an overview of the key terms and structures in the JSON i
 
 
 ### Response Codes:
-**200**: Inspections list  
-**400**: Bad Request Error - the path is malformed  
+**200**: Successful execution - may or may not have resultes in inspections array
+**400**: Bad Request Error - likely bad parameters passed in, check response message for details
 **401**: Unauthorized Error    
-**403**: Forbidden Error - the request is missing email/token  
-**404**: Not Found Error   
-**500**: Unknown Error - hopefully this one won't be returned!  
+**403**: Forbidden Error
+**404**: Not Found Error - specific inspection requested by ID but not found
+**500**: Unknown Error
 **503**: Upstream Service Error 
