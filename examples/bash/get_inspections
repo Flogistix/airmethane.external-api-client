@@ -21,7 +21,7 @@ do
     esac
 done
 
-for ARG in $orgs $sites $inspectionDateAfter $inspectionDateBefore $inspectionId do
+for ARG in $orgs $sites $inspectionDateAfter $inspectionDateBefore $inspectionId; do
   if [ $(expr length "$ARG") > 0 ]; then
     url_opts+='/'"${ARG}"
   fi
