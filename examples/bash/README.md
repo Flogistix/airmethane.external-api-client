@@ -31,7 +31,7 @@ export CLIENT_SECRET="client_secret"
 ## Run script
 Navigate to the directory containing get_inspections, execute from the command line and pass desired arguments
 ```Shell
-./get_inspections -o <customerId> -s <customerLocationId> -d <startDate> -b <endDate> -i <inspectionId> -l <leakId>
+./get_inspections -o <customerId> -s <customerLocationId> -a <inspectionDateAfter> -b <inspectionDateBefore> -i <inspectionId>
 ```
 
 See the [README at the base of the repo](../../README.md) for more information on these arguments and how the API functions.

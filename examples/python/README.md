@@ -41,7 +41,7 @@ export AUTH_CLIENT_SECRET="<client_secret>"
 ### Running the Client
 Execute the GET request to retrieve inspections from given arguments by running the Python script with a set of arguments:
 ```
-$ python3 get_inspections.py -o <orgs> -s <sites> -d <startDate> -b <endDate> -i <inspectionId> -l <leakId>
+$ python3 get_inspections.py -o <orgs> -s <sites> -a <inspectionDateAfter> -b <inspectionDateBefore> -i <inspectionId>
 ```
 
 See the [README at the base of the repo](../../README.md) for more information on these arguments and how the API functions.

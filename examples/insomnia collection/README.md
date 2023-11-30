@@ -29,7 +29,7 @@ Contact support@flogistix.com for help with your credentials.
 ### Run Get Ext Inspections
 Modify the URL path after ```/external/inspections/``` to include your parameters. The pattern is {argument name}/{argument value}, like so:
 ```
-orgs/{orgid}/sites/{siteId}/leakId/{leakId}/startDate/{startDate}/endDate/{endDate}
+orgs/{orgid}/sites/{siteId}/inspectionDateAfter/{inspectionDateAfter}/inspectionDateBefore/{inspectionDateBefore}
 ```
 
 For more information on these parameters, see the [README at the base of the repo](../../README.md).
