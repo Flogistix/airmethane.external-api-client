@@ -22,7 +22,9 @@ The API is used by creating a path with your desired parameters and appending th
 Details for how to use the parameters, what they represent, and how to interpret the responses are below.
 
 ## GET external/inspections 
-Retrieve inspections by user, org, site, inspection date, leak ID, or inspection ID. Order of parameters in the path does NOT matter. This endpoint is intended for AirMethane customer usage only. 
+Retrieve inspections by org (identifier for customer), site (identifier for customer's location), inspection date range, or inspection ID. Order of parameters in the path does not matter. This endpoint is intended for AirMethane customer usage only.
+
+Note: usage of curly braces in examples should be excluded from the actual path when using the endpoint.
 
 ### Get all inspections a user has access to
 ```
@@ -38,24 +40,21 @@ GET external/inspections/orgs/{orgid}/sites/{siteId}
 ```
 ### Get inspections for a specific date range
 ```
-GET external/inspections/startDate/{startDate}/endDate/{endDate}
+GET external/inspections/inspectionDateAfter/{YYYY-MM-DD}/inspectionDateBefore/{YYYY-MM-DD}
 ```
 Dates must be in ISO format YYYY-MM-DD
 ### Get inspections for a specific inspection ID
 ```
-GET external/inspections/inspectionId/{inspectionId}
+GET external/inspections/id/{99999}
 ```
-### Get inspections for a specific leak ID
+### Combining options to one path (order NOT important!)
 ```
-GET external/inspections/leakId/{leakId}
-```
-### Combining all options to one path (order NOT important!)
-```
-GET external/inspections/orgs/{customerId}/sites/{customerLocationId}/inspectionId/{inspectionId}/leakId/{leakId}/startDate/{startDate}/endDate/{endDate}
+GET external/inspections/orgs/{customerId}/sites/inspectionDateAfter/{YYYY-MM-DD}/inspectionDateBefore/{YYYY-MM-DD}
 ```
 
-Valid Responses:
+## Example Responses from API
 
+### Successful response - response code 200
 ```JSON
 {
     "inspections": [{
@@ -102,11 +101,24 @@ Valid Responses:
                     "inspectionId": 3664,
                     "flowRate": 60.549999,
                     "altitude": 800.5,
+					"surveyInstrumentId": 3,
+					"surveyInstrument": {
+                        "id": 3,
+                        "name": "VentusOGI",
+                        "serialNumber": "SN 630018",
+                        "sensorType": {
+                            "id": 7,
+                            "name": "OGI"
+                        }
+                    },
                     "file": {
 						"name": "dl_verif",
-						"sensorType": null,
+						"sensorType": {
+                            "id": 7,
+                            "name": "OGI"
+                        },
 						"fileType": "image",
-						"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/dl_verif/image/unknown/08-20-2021/dl_verif.PNG?response-content-disposition=attachment%3B%20filename%3D%22dl_verif&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
+						"downloadUrl": "https://airmethane-file-storage-dev.s3.amazonaws.com/dl_verif/image/VentusOGI/08-20-2021/dl_verif.PNG?response-content-disposition=attachment%3B%20filename%3D%22dl_verif&response-content-type=image%2Fpng&presignedInfoHere&Expires=1701374755"
 					}
                 }
             ],
@@ -399,18 +411,29 @@ Valid Responses:
     "executionTime": "1.85 sec"
 }
 ```
-If there are no inspections:
+
+### No results on generic search (like giving a date range) - response code 200
 ```JSON
 {
     "inspections": [],
     "executionTime": "400.74 ms"
 }
 ```
+
+### No results on specific inspection ID requested - response code 404
+```json
+{
+	"status": "Not Found",
+	"message": "Could not find inspection with given ID.",
+	"executionTime": "2.39 sec"
+}
+```
+
 ### Response Payload Glossary:
 
 # Flogistix Inspection Data Glossary
 
-This glossary provides an overview of the key terms and structures in the JSON inspection data provided to customers.
+This glossary provides an overview of the key terms and structures in the JSON inspection data provided to customers. Please reference the definitions below to better understand the example response payloads above.
 
 ## Top-Level Structure
 
