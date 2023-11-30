@@ -444,7 +444,7 @@ GET external/inspections?orgs={customerId}&sites={customerLocationId}&inspection
 
 This glossary provides an overview of the key terms and structures in the JSON inspection data provided to customers. Please reference the definitions below to better understand the example response payloads above.
 
-## Inspection-level Information
+## Inspections
 
 - **inspections**: An array containing inspections returned by given parameters to the endpoint.
   - **id**: Unique identifier for the inspection.
@@ -482,8 +482,6 @@ This glossary provides an overview of the key terms and structures in the JSON i
       - **name**: Sensor type name.
     - **fileType**: Type of file (e.g., image).
     - **downloadUrl**: URL for downloading the file.
-
-## Nested Object Information
 
 ### Verifications:
 - **verifications**: Array containing information about the survey instrument verification test on the day the inspection occurred.
