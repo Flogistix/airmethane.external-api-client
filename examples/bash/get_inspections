@@ -2,28 +2,26 @@
 
 orgs=""
 sites=""
-startDate=""
-endDate=""
+inspectionDateAfter=""
+inspectionDateBefore=""
 inspectionId=""
-leakId=""
 
 base_url="https://dev-api.axil.ai/airmethane/external/inspections"
 
 url_opts=""
 
-while getopts o:s:d:b:i:l flag
+while getopts o:s:a:b:i:l flag
 do
     case "${flag}" in
         o) orgs='orgs/'${OPTARG};;
         s) sites='sites/'${OPTARG};;
-        d) startDate='startDate/'${OPTARG};;
-        b) endDate='endDate/'${OPTARG};;
-        i) inspectionId='inspectionId/'${OPTARG};;
-        l) leakId='leakId/'${OPTARG};;
+        a) inspectionDateAfter='inspectionDateAfter/'${OPTARG};;
+        b) inspectionDateBefore='inspectionDateBefore/'${OPTARG};;
+        i) inspectionId='id/'${OPTARG};;
     esac
 done
 
-for ARG in $orgs $sites $startDate $endDate $inspectionId $leakId; do
+for ARG in $orgs $sites $inspectionDateAfter $inspectionDateBefore $inspectionId do
   if [ $(expr length "$ARG") > 0 ]; then
     url_opts+='/'"${ARG}"
   fi
